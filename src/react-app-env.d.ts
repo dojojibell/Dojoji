@@ -19,7 +19,10 @@ declare global {
     };
     ethereum?: {
       on: (event: string, cb: () => void) => void;
+      autoRefreshOnNetworkChange?: boolean;
+      chainId: string;
       ethereum: ethers.providers.Provider | undefined;
+      request: (...params: unknown[]) => void;
       networkVersion: any;
       isMetaMask: boolean;
       enable: () => void;

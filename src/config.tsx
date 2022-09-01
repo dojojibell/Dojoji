@@ -9,9 +9,9 @@ export const IS_DEV = process.env.NODE_ENV === 'development';
 export const CACHE_WALLET_KEY = 'wallet';
 
 export const NETWORK_MAINNET = 'mainnet';
-export const NETWORK_RINKEBY = 'rinkeby';
+export const NETWORK_RINKEBY = 'optimism';
 export const AVAILABLE_NETWORKS = [NETWORK_MAINNET, NETWORK_RINKEBY];
-
+export const AVAILABLE_NETWORKSID = [1, 10];
 export const TOKEN_0_ADDRESS: Record<string, string> = {
   [NETWORK_RINKEBY]: '0x2ef5B89bFD5BA8C3b15879106C57010aA7A32D06',
   [NETWORK_MAINNET]: '0x56ee175fe37cd461486ce3c3166e0cafccd9843f',

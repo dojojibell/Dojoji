@@ -57,6 +57,7 @@ const Layout: FC = () => {
             backgroundSize: 'cover',
           }}
         />
+
         <ParallaxLayer
           offset={0}
           speed={0}
@@ -117,6 +118,9 @@ const Layout: FC = () => {
             alt='cloud'
             style={{ width: '73%', marginLeft: '15%' }}
           />
+        </ParallaxLayer>
+        <ParallaxLayer offset={0} speed={0} factor={3}>
+          <Footer />
         </ParallaxLayer>
 
         <Box className={classes.container}>

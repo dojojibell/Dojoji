@@ -13,6 +13,7 @@ import cache from 'utils/cache';
 
 const WalletContext = createContext<{
   network: string | null;
+  chainid: number | null;
 
   signer: ethers.Signer | null;
   address: string | null;
@@ -28,6 +29,7 @@ const WalletContext = createContext<{
 export const WalletProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [isConnecting, setIsConnecting] = useState(false);
   const [network, setNetwork] = useState<string | null>(null);
+  const [chainid, setChainID] = useState<number | null>(null);
   const [signer, setSigner] = useState<ethers.Signer | null>(null);
   const [address, setAddress] = useState<string | null>(null);
 
@@ -52,6 +54,8 @@ export const WalletProvider: FC<{ children: ReactNode }> = ({ children }) => {
       const provider = new ethers.providers.Web3Provider(web3Provider);
 
       const { name: network } = await provider.getNetwork();
+      const { chainId: chainid } = await provider.getNetwork();
+      setChainID(chainid);
       setNetwork(~['homestead'].indexOf(network) ? NETWORK_MAINNET : network);
 
       const signer = provider.getSigner();
@@ -74,6 +78,7 @@ export const WalletProvider: FC<{ children: ReactNode }> = ({ children }) => {
     setSigner(null);
     setAddress(null);
     setNetwork(null);
+    setChainID(null);
   }
 
   useEffect(() => {
@@ -96,6 +101,7 @@ export const WalletProvider: FC<{ children: ReactNode }> = ({ children }) => {
     <WalletContext.Provider
       value={{
         network,
+        chainid,
 
         signer,
         address,
@@ -120,6 +126,7 @@ export function useWallet() {
   }
   const {
     network,
+    chainid,
 
     signer,
     address,
@@ -134,7 +141,7 @@ export function useWallet() {
 
   return {
     network,
-
+    chainid,
     signer,
     address,
 

@@ -125,7 +125,7 @@ const Mint: FC<{ history: any }> = ({ history }) => {
             backgroundImage: 'url(bellbackground.png)',
             backgroundSize: 'cover',
             position: 'relative',
-            width: '33%',
+            width: '33 vmin',
             marginRight: '5%',
           }}
         >
@@ -136,7 +136,7 @@ const Mint: FC<{ history: any }> = ({ history }) => {
                 alt='cloud'
                 style={{
                   position: 'relative',
-                  width: '100%',
+                  width: '33%',
                   left: '1.5vmin',
                   top: '7vmin',
                 }}
