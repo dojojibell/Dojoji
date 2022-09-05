@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const Layout: FC = () => {
   const classes = useStyles();
   const parallax = useRef<IParallax>(null!);
+  const isMobile = window.innerWidth <= 1000;
 
   return (
     <Router>
@@ -91,32 +92,38 @@ const Layout: FC = () => {
         />
 
         <ParallaxLayer
-          offset={0.72}
+          offset={isMobile ? 0.4 : 0.72}
           speed={0.3}
           style={{ pointerEvents: 'none' }}
         >
           <img
             src={cloud}
             alt='cloud'
-            style={{ width: '45%', right: '-10vm' }}
+            style={{ width: isMobile ? '60%' : '45%', right: '-10vm' }}
           />
         </ParallaxLayer>
         <ParallaxLayer
-          offset={0.9}
+          offset={isMobile ? 0.63 : 0.9}
           speed={0.5}
           style={{ pointerEvents: 'none' }}
         >
           <img
             src={cloudr}
             alt='cloud'
-            style={{ width: '69%', marginLeft: '35%' }}
+            style={{
+              width: isMobile ? '90%' : '69%',
+              marginLeft: isMobile ? '10%' : '35%',
+            }}
           />
         </ParallaxLayer>
-        <ParallaxLayer offset={0} speed={0.1}>
+        <ParallaxLayer offset={isMobile ? 0.1 : 0} speed={0.1}>
           <img
             src={dragon}
-            alt='cloud'
-            style={{ width: '73%', marginLeft: '15%' }}
+            alt='dragon'
+            style={{
+              width: isMobile ? '100%' : '73%',
+              marginLeft: isMobile ? '0' : '15%',
+            }}
           />
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={0} factor={3}>
@@ -124,7 +131,7 @@ const Layout: FC = () => {
         </ParallaxLayer>
 
         <Box className={classes.container}>
-          <ParallaxLayer offset={1.1} speed={0.3}>
+          <ParallaxLayer offset={isMobile ? 0.95 : 1.1} speed={0.3}>
             <Mint />
           </ParallaxLayer>
           <ParallaxLayer offset={2.2} speed={0.2}>

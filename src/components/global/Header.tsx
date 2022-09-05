@@ -6,6 +6,7 @@ import { APP_NAME } from 'config';
 import coinm from './coinm.png';
 import eth from './ETH.png';
 import op from './op.png';
+
 const useStyles = makeStyles((theme) => ({
   container: {
     boxShadow: 'none',
